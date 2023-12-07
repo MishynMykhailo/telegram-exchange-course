@@ -1,4 +1,5 @@
 module.exports = async (ctx, text, extra) => {
+  console.log(text);
   try {
     if (ctx.updateType === 'message') {
       await ctx.reply(text, extra);

@@ -1,4 +1,5 @@
 require('dotenv').config();
+const { startHandler, selectHandler } = require('./handlers');
 
 const path = require('path');
 const { Telegraf } = require('telegraf');
@@ -17,4 +18,11 @@ bot.use(i18n.middleware());
 getExchange().then(data => {
   bot.context.currency = data.map(i => i.ccy);
 });
-bot.launch();
+
+bot.start(startHandler);
+bot.action(/^select(?:::(\w+))$/, selectHandler);
+
+bot
+  .launch()
+  .then(() => console.log('start bot'))
+  .catch(err => console.error('Ошибка запуска бота:', err));

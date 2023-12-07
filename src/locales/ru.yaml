@@ -1,3 +1,6 @@
-# <name>: <content>
-start: Привет, ${from.first_name}
 start: <b>Выберите тип валюты:</b>
+select:
+  USD: "Американский доллар"
+  EUR: "Евро"
+  RUR: "Российский рубль"
+  BTC: "Bitcoin"
